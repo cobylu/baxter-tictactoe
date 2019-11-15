@@ -1,4 +1,5 @@
 from Human_Player import Human_Player
+from MiniMax_Player import MiniMax_Player
 
 class TicTacToe():
     """
@@ -6,6 +7,8 @@ class TicTacToe():
     """
 
     def __init__(self, p1, p2):
+        p1.set_player('O')
+        p2.set_player('X')
         self.p1 = p1
         self.p2 = p2
         self.reset()
@@ -32,8 +35,9 @@ class TicTacToe():
         Return a copy of the game with identical state.
         """
         copy = TicTacToe(self.p1, self.p2)
-        copy.board = self.board
+        copy.board = [x for x in self.board]
         copy.turn = self.turn
+        return copy
 
     def get_valid_moves(self):
         """
@@ -106,6 +110,7 @@ class TicTacToe():
                     move = self.p2.action(self)
             self.apply_move(move)
         
+        self.print_board()
         winner = self.is_game_over()
         if winner == '-':
             print("Draw!")
@@ -114,5 +119,5 @@ class TicTacToe():
         return winner
 
 if __name__ == '__main__':
-    tictactoe = TicTacToe(Human_Player(), Human_Player())
+    tictactoe = TicTacToe(Human_Player(), MiniMax_Player(search_depth=2))
     tictactoe.play()
