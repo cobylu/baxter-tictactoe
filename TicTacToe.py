@@ -82,6 +82,31 @@ class TicTacToe():
                 return None
         return '-'
 
+    def is_cheater(self, board):
+        """
+        Returns true if the passed in board is different but not a valid state
+        based on the next player's moves.
+        """
+        if board == self.board:
+            return False
+        
+        diff = [board[i] if board[i] != self.board[i] else None for i in range(len(board))]
+        diff = list(filter(lambda x: x is not None, diff))
+
+        if len(diff) > 1:
+            return True
+
+        if diff[0] != self.turn:
+            return True
+        
+        return False
+
+    def is_same(self, board):
+        """
+        Returns true if the passed in board is the same as the current board.
+        """
+        return board == self.board
+
     def print_board(self):
         """
         Prints the game's state. The board is printed as a 3x3 grid with '_'
