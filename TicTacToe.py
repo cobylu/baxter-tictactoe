@@ -116,9 +116,9 @@ class TicTacToe():
         for i in range(3):
             for j in range(3):
                 idx = i * 3 + j
-                print(self.board[idx] if self.board[idx] != '' else '_', end = " ")
-            print()
-        print(f'Current player\'s turn: {self.turn}')
+                print self.board[idx] if self.board[idx] != '' else '_',
+            print ""
+        print "Current player\'s turn: " + self.turn
 
     def play(self):
         """
@@ -138,9 +138,9 @@ class TicTacToe():
         self.print_board()
         winner = self.is_game_over()
         if winner == '-':
-            print("Draw!")
+            print "Draw!"
         else:
-            print(f'Player {winner} won!')
+            print "Player " + winner + " won!"
         return winner
 
 if __name__ == '__main__':
