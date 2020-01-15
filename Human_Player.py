@@ -1,7 +1,6 @@
 class Human_Player():
     def action(self, board):
-        print('Input an action:')
-        move = input()
+        move = raw_input("Input an action: ")
         return int(move)
 
     def set_player(self, player):
