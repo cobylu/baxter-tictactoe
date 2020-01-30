@@ -1,6 +1,8 @@
 __pycache__/
 *.pyc
 venv/
+misc/
+test_misc.py
 
 
 .DS_Store

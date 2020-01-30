@@ -24,4 +24,5 @@ class TicTacToeTestCase(unittest.TestCase):
         self.assertFalse(self.tictactoe.is_cheater(['', 'O', '', '', '', '', '', '', '']))
         self.assertTrue(self.tictactoe.is_cheater(['', 'O', 'X', 'X', '', '', '', '', '']))
 
-
+if __name__ == '__main__':
+    unittest.main()
